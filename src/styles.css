@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  background: url('https://source.unsplash.com/1600x900/?nature,water') no-repeat center center/cover;
+  color: white;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #343a40;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding-left: 30px;
+  margin-bottom: 10px;
+}
