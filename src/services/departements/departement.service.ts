@@ -15,27 +15,27 @@ export class DepartementService {
 
   //méthode qui appelle l'api pour lister les départements
   getDepartements(): Observable<Departement[]> {
-    const basicAuth = 'Basic ' + btoa(this.authService.username + ':' + this.authService.password);
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
-      'Authorization': basicAuth
+      'Authorization': `Bearer ${token}`
     });
-    return this.http.get<Departement[]>(this.apiUrl, { headers });
+    return this.http.get<Departement[]>(this.apiUrl,{headers});
   }
 
   //méthode qui appelle l'api pour supprimer un département
   deleteDepartement(id: number): Observable<Departement> {
-    const basicAuth = 'Basic ' + btoa(this.authService.username + ':' + this.authService.password);
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
-      'Authorization': basicAuth
+      'Authorization': `Bearer ${token}`
     });
     return this.http.delete<Departement>(this.apiUrl +"/"+ id, { headers } );
   }
 
   //méthode qui appelle l'api pour éditer un département
   editDepartement(departement: Departement): Observable<Departement> {
-    const basicAuth = 'Basic ' + btoa(this.authService.username + ':' + this.authService.password);
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
-      'Authorization': basicAuth
+      'Authorization': `Bearer ${token}`
     });
     return this.http.put<Departement>(this.apiUrl,departement, { headers }).pipe(
       catchError(this.handleError)
@@ -50,18 +50,18 @@ export class DepartementService {
 
   //méthode qui appelle l'api pour lister les projets d'un département
   getProjetsForDept(id:number): Observable<Projet[]> {
-    const basicAuth = 'Basic ' + btoa(this.authService.username + ':' + this.authService.password);
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
-      'Authorization': basicAuth
+      'Authorization': `Bearer ${token}`
     });
     return this.http.get<Projet[]>(this.apiUrl+"/" +id+"/projets",{ headers });
   }
 
   //méthode qui appelle l'api pour ajouter un département
   addDepartement(departement: any): Observable<Departement> {
-    const basicAuth = 'Basic ' + btoa(this.authService.username + ':' + this.authService.password);
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
-      'Authorization': basicAuth
+      'Authorization': `Bearer ${token}`
     });
     return this.http.post<Departement>(this.apiUrl,departement,{ headers }).pipe(
       catchError(this.handleError)
@@ -70,9 +70,9 @@ export class DepartementService {
 
   //méthode qui appelle l'api pour ajouter un département
   searchDepartements(key: any): Observable<Departement[]> {
-    const basicAuth = 'Basic ' + btoa(this.authService.username + ':' + this.authService.password);
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
-      'Authorization': basicAuth
+      'Authorization': `Bearer ${token}`
     });
     return this.http.get<Departement[]>(this.apiUrl+"/recherche?keyword=" + key,{ headers });
   }

@@ -2,7 +2,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#">Application de gestion de projets</a>
+        <a class="navbar-brand">Application de gestion de projets</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
             </li>
     
             <!-- Menu déroulant utilisateur à droite -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" *ngIf="authService.authenticated">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{authService.username | uppercase}}
               </a>

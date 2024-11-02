@@ -24,7 +24,7 @@ export const routes: Routes = [
     ]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },  // Redirection par défaut vers login
-  { path: '**', redirectTo: '/login' } , // Gestion des routes non trouvées (404)
+  { path: '**', redirectTo: '/login' } , // Gestion des routes non trouvées
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

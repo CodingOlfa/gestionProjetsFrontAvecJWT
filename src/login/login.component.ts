@@ -3,6 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/authentification/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthRequest } from '../classes/AuthRequest';
+import { jwtDecode } from 'jwt-decode';
+
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -16,28 +20,32 @@ loginError:string='';
 
 
 constructor(public authService: AuthService, 
-            private router: Router) {}
+            private router: Router,
+          ) {}
 onLogin() {
-  this.authService.login(this.authService.username, this.authService.password).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.authService.authenticated = true;
-        // Extraire les rôles depuis `authorities`
-      this.authService.roles = data.authorities.map((auth: any) => auth.authority) || [];
-      //console.log(this.authService.roles);
-        this.router.navigate(['/principal']); // Rediriger vers la page principal
-        
-      },
-      error: (err) => {
-        this.authService.authenticated = false;
-        this.loginError="Bad credentials!!!!"
-      }
-    });   
+  const authRequest: AuthRequest = { 
+    username: this.authService.username, 
+    password: this.authService.password 
+  };
+  return this.authService.login(authRequest).subscribe({
+    next: (response: string) => {
+      localStorage.setItem('token', response); // Stockage du token
+      this.authService.authenticated = true;
+      const decodedToken: any = jwtDecode(response);
+      this.authService.roles = decodedToken.roles; // récupérer les roles à partir du token
+      this.router.navigate(['/principal']); // Redirection après la connexion
+    },
+    error: (err) => {
+      this.authService.authenticated = false;
+      this.loginError="Bad credentials";
+      console.error('Erreur de connexion', err);
+    }
+  });
 }
 
 
 
 
-
-
 }
+
+

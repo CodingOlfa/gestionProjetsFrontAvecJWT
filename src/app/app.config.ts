@@ -1,12 +1,13 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, RouterModule } from '@angular/router';
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { TokenInterceptor } from '../interceptors/TokenInterceptor';
 
 
 export const appConfig: ApplicationConfig = {
@@ -18,6 +19,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       CommonModule,BrowserModule,RouterModule.forRoot([]),
       ToastrModule.forRoot(), BrowserAnimationsModule 
-    )
+    )    
   ]
 };
