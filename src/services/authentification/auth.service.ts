@@ -7,7 +7,7 @@ import { AuthRequest } from '../../classes/AuthRequest';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = '/api/users';
+  private baseUrl = '/api/users';  
   username: string='';
   password: string='';
   authenticated:boolean=false;
