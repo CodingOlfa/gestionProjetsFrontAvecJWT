@@ -17,6 +17,7 @@ import { AuthService } from '../../services/authentification/auth.service';
 export class PrincipalComponent {
   constructor(public authService: AuthService) {}
 
+  
   onLogout() {
     this.authService.authenticated = false;
     localStorage.removeItem('token'); // Suppression du token

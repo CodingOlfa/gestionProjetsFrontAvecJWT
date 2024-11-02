@@ -18,6 +18,5 @@ export class RoleGuard implements CanActivate {
       return true; // L'utilisateur est authentifié avec les rôles requis, accès accordé
     }
     return false; // L'utilisateur n'a pas les droits d'accès, accès refusé
-  }
-  
+  } 
 }
