@@ -11,8 +11,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.8"
   },
-  "scripts":{"ng":"ng",
-            "start":"ng serve",
+  "scripts":{"start":"ng serve",
             "build":"ng build",
             "test":"ng test",
             "lint":"ng lint",
