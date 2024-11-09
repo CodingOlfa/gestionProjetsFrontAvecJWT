@@ -1,4 +1,4 @@
-import { Projet } from "./projet";
+import { Projet } from "./Projet";
 export interface Employe {
   id: number;
   nom: string;
