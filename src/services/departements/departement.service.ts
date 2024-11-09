@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Departement } from '../../classes/Departement';
 import { catchError, Observable, throwError } from 'rxjs';
-import { Projet } from '../../classes/projet';
+import { Projet } from '../../classes/Projet';
 import { AuthService } from '../authentification/auth.service';
 
 @Injectable({

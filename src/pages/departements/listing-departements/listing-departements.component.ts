@@ -6,7 +6,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModal, NgbModalRef  } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
-import { Projet } from '../../../classes/projet';
+import { Projet } from '../../../classes/Projet';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../../../services/authentification/auth.service';
 
